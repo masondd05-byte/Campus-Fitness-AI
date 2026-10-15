@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beginner Workout Plan for College Gym | CampusFit AI</title>
+  <meta name="description" content="A simple, non-intimidating 3-day full-body workout routine built for college students navigating crowded campus recreation centers.">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --bg: #0f172a;
+      --bg-card: rgba(255, 255, 255, 0.04);
+      --border: rgba(255, 255, 255, 0.1);
+      --border-accent: rgba(56, 189, 248, 0.3);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .edu-disclaimer {
+      background: #1e293b;
+      border-bottom: 1px solid rgba(251, 191, 36, 0.3);
+      color: #fbbf24;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 10px 16px;
+      font-weight: 500;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .brand-logo { text-decoration: none; color: #ffffff; font-weight: 800; font-size: 1.25rem; }
+    .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+    }
+    .nav-links a:hover { color: #ffffff; background: rgba(255, 255, 255, 0.06); }
+    .nav-links a.active {
+      color: #ffffff;
+      background: rgba(37, 99, 235, 0.25);
+      border: 1px solid rgba(37, 99, 235, 0.5);
+    }
+    .content-wrap { max-width: 900px; margin: 40px auto; padding: 0 24px; }
+    .page-header { margin-bottom: 36px; }
+    .page-pill {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--border-accent);
+      color: var(--accent);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .page-header h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+    .page-header p { font-size: 1.1rem; color: var(--text-muted); }
+    .day-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+    .day-block h2 {
+      font-size: 1.3rem;
+      color: var(--accent);
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .day-block h2 span { font-size: 0.85rem; color: var(--text-muted); font-weight: 400; }
+    .routine-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    .routine-table th, .routine-table td {
+      padding: 12px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.9rem;
+    }
+    .routine-table th { color: var(--text-muted); font-weight: 600; text-transform: uppercase; font-size: 0.75rem; }
+    .routine-table td { color: var(--text-main); }
+    .nav-box {
+      background: rgba(37, 99, 235, 0.08);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-top: 36px;
+      text-align: center;
+    }
+    .nav-box a { color: var(--accent); font-weight: 600; text-decoration: none; margin: 0 10px; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      background: #090d16;
+      margin-top: 60px;
+    }
+    footer .disclaimer { color: #eab308; font-size: 0.82rem; font-weight: 500; }
+  </style>
+</head>
+<body>
+
+<aside class="edu-disclaimer">
+  This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.
+</aside>
+
+<header class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="brand-logo">CampusFit<span style="color:var(--accent);">AI</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dorm-workout.html">Dorm Workouts</a>
+      <a href="campus-gym.html" class="active">Campus Gym Plan</a>
+      <a href="budget-meals.html">Budget Meals</a>
+    </nav>
+  </div>
+</header>
+
+<main class="content-wrap">
+  <div class="page-header">
+    <div class="page-pill">Campus Recreation Guide</div>
+    <h1>Beginner Workout Plan for College Gym</h1>
+    <p>Stepping into a packed rec center can be intimidating. This 3-day split focuses on versatile dumbbell stations and cable machines so you never have to wait in line for a barbell rack.</p>
+  </div>
+
+  <section class="day-block">
+    <h2>Day 1: Upper Body Push & Pull <span>Monday / ~45 Min</span></h2>
+    <table class="routine-table">
+      <thead>
+        <tr><th>Movement</th><th>Target</th><th>Volume</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Flat Dumbbell Bench Press</td><td>Chest & Triceps</td><td>3 sets &times; 10 reps</td></tr>
+        <tr><td>Seated Cable Lat Pulldown</td><td>Lats & Upper Back</td><td>3 sets &times; 10 reps</td></tr>
+        <tr><td>Standing Dumbbell Overhead Press</td><td>Shoulders</td><td>3 sets &times; 12 reps</td></tr>
+        <tr><td>Chest-Supported Dumbbell Row</td><td>Mid-Back</td><td>3 sets &times; 12 reps</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="day-block">
+    <h2>Day 2: Lower Body & Core <span>Wednesday / ~45 Min</span></h2>
+    <table class="routine-table">
+      <thead>
+        <tr><th>Movement</th><th>Target</th><th>Volume</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Dumbbell Goblet Squat</td><td>Quads & Core</td><td>3 sets &times; 10 reps</td></tr>
+        <tr><td>Dumbbell Romanian Deadlift</td><td>Hamstrings & Glutes</td><td>3 sets &times; 10 reps</td></tr>
+        <tr><td>Walking Dumbbell Lunges</td><td>Leg Stamina</td><td>3 sets &times; 10 reps / leg</td></tr>
+        <tr><td>Hanging Knee Raises</td><td>Lower Abs</td><td>3 sets &times; 12 reps</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="day-block">
+    <h2>Day 3: Full Body Density <span>Friday / ~40 Min</span></h2>
+    <table class="routine-table">
+      <thead>
+        <tr><th>Movement</th><th>Target</th><th>Volume</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Incline Dumbbell Press</td><td>Upper Chest</td><td>3 sets &times; 10 reps</td></tr>
+        <tr><td>Seated Cable Row</td><td>Lats & Rhomboids</td><td>3 sets &times; 12 reps</td></tr>
+        <tr><td>Bulgarian Split Squats</td><td>Quads & Balance</td><td>3 sets &times; 8 reps / leg</td></tr>
+        <tr><td>Tricep Rope Pressdown + Bicep Curl</td><td>Arms Superset</td><td>3 sets &times; 12 reps each</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <div class="nav-box">
+    <p>Looking for alternative options?</p>
+    <a href="dorm-workout.html">&rarr; No-Equipment Dorm Plan</a>
+    <a href="budget-meals.html">&rarr; Budget Student Meals</a>
+  </div>
+</main>
+
+<footer>
+  <p class="disclaimer">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</p>
+</footer>
+
+</body>
+</html>
