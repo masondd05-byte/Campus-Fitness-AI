@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://masondd05-byte.github.io/Campus-Fitness-AI/sitemap.xml
