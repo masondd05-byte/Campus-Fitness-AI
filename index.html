@@ -6,53 +6,484 @@
   <title>Workout Plan for College Students | CampusFit AI</title>
   <meta name="description" content="Custom workout routines and meal plans designed for busy college schedules, campus recreation facilities, and dorm living.">
   <style>
-    :root { --primary: #0056b3; --bg: #f8f9fa; --text: #212529; --card: #ffffff; }
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; margin: 0; background-color: var(--bg); color: var(--text); }
-    header, footer { background: #e9ecef; text-align: center; padding: 12px 15px; }
-    .disclaimer { font-size: 0.85rem; color: #495057; font-weight: 500; margin: 0; }
-    nav { background: #343a40; padding: 10px; display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-    nav a { color: #ffffff; text-decoration: none; font-weight: 600; font-size: 0.95rem; }
-    nav a:hover { text-decoration: underline; }
-    main { max-width: 800px; margin: 20px auto; padding: 0 20px; }
-    .hero { background: var(--card); border-radius: 8px; padding: 25px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
-    h1, h2 { color: var(--primary); }
-    ul { padding-left: 20px; }
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-gradient: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #38bdf8 100%);
+      --surface: #ffffff;
+      --bg: #0f172a;
+      --bg-card: rgba(255, 255, 255, 0.04);
+      --bg-card-hover: rgba(255, 255, 255, 0.07);
+      --border: rgba(255, 255, 255, 0.1);
+      --border-accent: rgba(56, 189, 248, 0.3);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent: #38bdf8;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+      --shadow-lg: 0 20px 40px -15px rgba(0, 0, 0, 0.5);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Required University Disclaimers */
+    .edu-disclaimer {
+      background: #1e293b;
+      border-bottom: 1px solid rgba(251, 191, 36, 0.3);
+      color: #fbbf24;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 10px 16px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+    }
+
+    /* Navigation Bar */
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .brand-badge {
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+    }
+    .nav-links a:hover {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.06);
+    }
+    .nav-links a.active {
+      color: #ffffff;
+      background: rgba(37, 99, 235, 0.25);
+      border: 1px solid rgba(37, 99, 235, 0.5);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 70px 24px 50px;
+      text-align: center;
+    }
+    .hero-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--border-accent);
+      color: var(--accent);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.4rem);
+      line-height: 1.15;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+      background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      max-width: 720px;
+      margin: 0 auto 34px;
+      line-height: 1.7;
+    }
+    .cta-row {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      background: var(--primary);
+      color: #ffffff;
+      padding: 13px 26px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: background 0.2s ease, transform 0.15s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn-primary:hover {
+      background: var(--primary-hover);
+      transform: translateY(-1px);
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border);
+      color: #ffffff;
+      padding: 13px 24px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      text-decoration: none;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+    }
+    .btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 30px 24px;
+    }
+
+    /* Stat Cards */
+    .metrics-bar {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+      margin-bottom: 60px;
+    }
+    .metric-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      padding: 22px;
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    .metric-value {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+    .metric-label {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    /* Pillar Modules Grid */
+    .section-header {
+      margin-bottom: 28px;
+    }
+    .section-header h2 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 8px;
+    }
+    .section-header p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+      gap: 24px;
+      margin-bottom: 60px;
+    }
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      transition: all 0.25s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      overflow: hidden;
+    }
+    .card:hover {
+      background: var(--bg-card-hover);
+      border-color: rgba(255, 255, 255, 0.25);
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-lg);
+    }
+    .card-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+    .card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 12px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+    }
+    .card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 24px;
+      line-height: 1.6;
+    }
+    .card-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card-action {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .card-action:hover {
+      color: var(--accent);
+    }
+
+    /* Routine Planner Mock */
+    .planner-section {
+      background: linear-gradient(180deg, rgba(37, 99, 235, 0.1) 0%, rgba(15, 23, 42, 0.4) 100%);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      margin-bottom: 60px;
+    }
+    .planner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 24px;
+    }
+    .day-pill {
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 20px;
+    }
+    .day-pill h4 {
+      font-size: 1.05rem;
+      color: var(--accent);
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .day-pill span {
+      color: var(--text-dim);
+      font-size: 0.8rem;
+      font-weight: 400;
+    }
+    .day-pill p {
+      font-size: 0.88rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px 60px;
+      text-align: center;
+      background: #090d16;
+    }
+    footer .footer-text {
+      color: var(--text-dim);
+      font-size: 0.85rem;
+      max-width: 700px;
+      margin: 0 auto 16px;
+    }
+    footer .disclaimer {
+      color: #eab308;
+      font-size: 0.82rem;
+      max-width: 700px;
+      margin: 0 auto;
+      font-weight: 500;
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <p class="disclaimer">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</p>
-</header>
+<aside class="edu-disclaimer">
+  This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.
+</aside>
 
-<nav>
-  <a href="index.html">Home</a>
-  <a href="dorm-workout.html">Dorm Workouts</a>
-  <a href="campus-gym.html">Campus Gym Plan</a>
-  <a href="budget-meals.html">Budget Meals</a>
-</nav>
+<header class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="brand-logo">
+      CampusFit<span style="color:var(--accent);">AI</span>
+      <span class="brand-badge">BETA</span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="dorm-workout.html">Dorm Workouts</a>
+      <a href="campus-gym.html">Campus Gym Plan</a>
+      <a href="budget-meals.html">Budget Meals</a>
+    </nav>
+  </div>
+</header>
 
 <main>
   <section class="hero">
+    <div class="hero-pill">
+      <span>●</span> Fall 2026 Student Health Initiative
+    </div>
     <h1>Personalized Workout Plan for College Students</h1>
-    <p>Balancing lectures, exams, part-time jobs, and social commitments makes traditional fitness routines difficult to sustain. CampusFit AI generates flexible routines and nutritional guidance tailored specifically around academic terms and campus constraints.</p>
+    <p>Balancing heavy course loads, variable exam schedules, and limited budgets shouldn't compromise your fitness. CampusFit AI pairs custom workout routines with affordable meal plans designed around actual college living constraints.</p>
+    <div class="cta-row">
+      <a href="dorm-workout.html" class="btn-primary">Start Dorm Workout &rarr;</a>
+      <a href="campus-gym.html" class="btn-secondary">Explore Campus Gym Guide</a>
+    </div>
   </section>
 
-  <section class="hero">
-    <h2>Built Around Student Realities</h2>
-    <p>Whether you have 30 minutes between classes or access to an Olympic-tier campus recreation center, consistent habits beat sporadic perfection:</p>
-    <ul>
-      <li><strong>Space-Conscious Training:</strong> Workouts mapped for tight dorm quarters without disrupting roommates.</li>
-      <li><strong>Facility Integration:</strong> Simple guides to navigate campus weights, machines, and peak rush hours.</li>
-      <li><strong>Cost-Effective Nutrition:</strong> Recipes and dining strategies designed for mini-fridges, microwaves, and dining hall swipes.</li>
-    </ul>
-    <p>Explore our guides on setting up a <a href="dorm-workout.html">dorm room workout plan</a>, executing a <a href="campus-gym.html">beginner workout plan for the campus gym</a>, or preparing <a href="budget-meals.html">healthy meals for college students on a budget</a>.</p>
-  </section>
+  <div class="container">
+    <section class="metrics-bar">
+      <div class="metric-card">
+        <div class="metric-value">20 Min</div>
+        <div class="metric-label">Average Session Length</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">$3.50</div>
+        <div class="metric-label">Average Meal Cost</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">0 Equip</div>
+        <div class="metric-label">Dorm Protocol Required</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value">3-Day</div>
+        <div class="metric-label">Balanced Split Framework</div>
+      </div>
+    </section>
+
+    <div class="section-header">
+      <h2>Targeted Training & Nutrition Resources</h2>
+      <p>Select your training context or meal prep needs to view detailed protocols.</p>
+    </div>
+
+    <div class="cards-grid">
+      <article class="card">
+        <div>
+          <div class="card-tag">Living Quarters</div>
+          <h3>Dorm Room Workout Plan</h3>
+          <p>Quiet, zero-equipment bodyweight training designed for tight desk-to-bed footprints. High-intensity circuits engineered not to disturb roommates or neighbors below.</p>
+        </div>
+        <div class="card-footer">
+          <a href="dorm-workout.html" class="card-action">View Dorm Routine &rarr;</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <div class="card-tag">University Rec</div>
+          <h3>Beginner Campus Gym Plan</h3>
+          <p>Conquer gym anxiety with a straightforward 3-day split utilizing dumbbell racks and simple cables. Avoid crowded peak hours and long equipment queues.</p>
+        </div>
+        <div class="card-footer">
+          <a href="campus-gym.html" class="card-action">View Gym Protocol &rarr;</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div>
+          <div class="card-tag">Smart Fuel</div>
+          <h3>Budget Student Meals</h3>
+          <p>Nutritious, high-protein meal options built for mini-fridges, dining halls, and microwave meal prep without burning through financial aid.</p>
+        </div>
+        <div class="card-footer">
+          <a href="budget-meals.html" class="card-action">View Meal Frameworks &rarr;</a>
+        </div>
+      </article>
+    </div>
+
+    <section class="planner-section">
+      <div class="section-header">
+        <h2>Weekly Academic Schedule Blueprint</h2>
+        <p>A balanced weekly routine structured around lecture blocks, homework, and recovery.</p>
+      </div>
+      <div class="planner-grid">
+        <div class="day-pill">
+          <h4>Mon / Wed <span>40 Min</span></h4>
+          <p><strong>Campus Gym Session:</strong> Full upper and lower dumbbell compound movements between afternoon lectures.</p>
+        </div>
+        <div class="day-pill">
+          <h4>Tue / Thu <span>20 Min</span></h4>
+          <p><strong>Quiet Dorm Circuit:</strong> Core and mobility routine performed right in your room before morning classes.</p>
+        </div>
+        <div class="day-pill">
+          <h4>Weekend <span>30 Min</span></h4>
+          <p><strong>Grocery Prep & Reset:</strong> Batch-prep high-protein lunch bowls for the upcoming exam week.</p>
+        </div>
+      </div>
+    </section>
+  </div>
 </main>
 
 <footer>
+  <p class="footer-text">CampusFit AI is an autonomous, model-generated web prototype providing automated exercise and nutritional recommendations for college students.</p>
   <p class="disclaimer">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</p>
 </footer>
 
 </body>
 </html>
+
