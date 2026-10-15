@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dorm Room Workout Plan | CampusFit AI</title>
+  <meta name="description" content="Effective no-equipment and quiet workout routines designed specifically for tight dorm rooms, shared spaces, and busy student schedules.">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --bg: #0f172a;
+      --bg-card: rgba(255, 255, 255, 0.04);
+      --bg-card-hover: rgba(255, 255, 255, 0.07);
+      --border: rgba(255, 255, 255, 0.1);
+      --border-accent: rgba(56, 189, 248, 0.3);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --text-dim: #64748b;
+      --accent: #38bdf8;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .edu-disclaimer {
+      background: #1e293b;
+      border-bottom: 1px solid rgba(251, 191, 36, 0.3);
+      color: #fbbf24;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 10px 16px;
+      font-weight: 500;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 1.25rem;
+      letter-spacing: -0.02em;
+    }
+    .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+      transition: all 0.2s ease;
+    }
+    .nav-links a:hover { color: #ffffff; background: rgba(255, 255, 255, 0.06); }
+    .nav-links a.active {
+      color: #ffffff;
+      background: rgba(37, 99, 235, 0.25);
+      border: 1px solid rgba(37, 99, 235, 0.5);
+    }
+    .content-wrap { max-width: 900px; margin: 40px auto; padding: 0 24px; }
+    .page-header { margin-bottom: 36px; }
+    .page-pill {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--border-accent);
+      color: var(--accent);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 14px;
+    }
+    .page-header h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+    .page-header p { font-size: 1.1rem; color: var(--text-muted); line-height: 1.7; }
+    .guide-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      margin-bottom: 28px;
+    }
+    .guide-card h2 {
+      font-size: 1.4rem;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .exercise-list { display: flex; flex-direction: column; gap: 18px; margin-top: 20px; }
+    .exercise-item {
+      background: rgba(15, 23, 42, 0.5);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 18px 20px;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      align-items: flex-start;
+    }
+    .ex-num {
+      background: var(--primary);
+      color: #ffffff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .ex-body h3 { font-size: 1.05rem; margin-bottom: 4px; color: var(--text-main); }
+    .ex-body p { font-size: 0.9rem; color: var(--text-muted); }
+    .nav-box {
+      background: rgba(37, 99, 235, 0.08);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-top: 36px;
+      text-align: center;
+    }
+    .nav-box p { color: var(--text-muted); font-size: 0.95rem; margin-bottom: 14px; }
+    .nav-box a { color: var(--accent); font-weight: 600; text-decoration: none; margin: 0 10px; }
+    .nav-box a:hover { text-decoration: underline; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      background: #090d16;
+      margin-top: 60px;
+    }
+    footer .disclaimer { color: #eab308; font-size: 0.82rem; font-weight: 500; }
+  </style>
+</head>
+<body>
+
+<aside class="edu-disclaimer">
+  This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.
+</aside>
+
+<header class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="brand-logo">CampusFit<span style="color:var(--accent);">AI</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dorm-workout.html" class="active">Dorm Workouts</a>
+      <a href="campus-gym.html">Campus Gym Plan</a>
+      <a href="budget-meals.html">Budget Meals</a>
+    </nav>
+  </div>
+</header>
+
+<main class="content-wrap">
+  <div class="page-header">
+    <div class="page-pill">Room-Friendly Protocol</div>
+    <h1>Dorm Room Workout Plan</h1>
+    <p>A zero-equipment, high-intensity circuit engineered for tight living quarters. These silent exercises build strength and elevate heart rate without shaking the floor or disturbing roommates.</p>
+  </div>
+
+  <section class="guide-card">
+    <h2>The 20-Minute Silent Circuit</h2>
+    <p style="color: var(--text-muted);">Perform each movement for 45 seconds with controlled cadence, followed by 15 seconds of transition rest. Complete 3 to 4 rounds total.</p>
+    
+    <div class="exercise-list">
+      <div class="exercise-item">
+        <div class="ex-num">1</div>
+        <div class="ex-body">
+          <h3>Elevated Desk or Bed Push-Ups</h3>
+          <p>Place hands on your sturdy desk edge or bed frame. Maintain a rigid plank angle while pressing to isolate chest and triceps without needing wide floor space.</p>
+        </div>
+      </div>
+
+      <div class="exercise-item">
+        <div class="ex-num">2</div>
+        <div class="ex-body">
+          <h3>3-Second Tempo Air Squats</h3>
+          <p>Descend for three seconds, pause for one second at parallel, and press up smoothly. Eliminates jumping impact while creating high muscle tension.</p>
+        </div>
+      </div>
+
+      <div class="exercise-item">
+        <div class="ex-num">3</div>
+        <div class="ex-body">
+          <h3>Isometric Doorframe Row</h3>
+          <p>Stand inside your closet or room doorway, grip the molding or frame, and pull against resistance in 10-second isometric bursts to strengthen the upper back.</p>
+        </div>
+      </div>
+
+      <div class="exercise-item">
+        <div class="ex-num">4</div>
+        <div class="ex-body">
+          <h3>Controlled Glute Bridges</h3>
+          <p>Lie on your back between your rug and wardrobe. Drive through your heels to bridge your hips upward, holding for two seconds at peak contraction.</p>
+        </div>
+      </div>
+
+      <div class="exercise-item">
+        <div class="ex-num">5</div>
+        <div class="ex-body">
+          <h3>Dead Bug Core Holds</h3>
+          <p>Opposite arm and leg reach from your back without movement in the lower lumbar. Generates deep core stability without crunching or stomping.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="nav-box">
+    <p>Ready to level up with weights or plan post-workout nutrition?</p>
+    <a href="campus-gym.html">&rarr; Campus Gym Beginner Plan</a>
+    <a href="budget-meals.html">&rarr; Budget Student Meals</a>
+  </div>
+</main>
+
+<footer>
+  <p class="disclaimer">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</p>
+</footer>
+
+</body>
+</html>
