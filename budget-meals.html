@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Healthy Meals for College Students on a Budget | CampusFit AI</title>
+  <meta name="description" content="Affordable, quick, and high-protein meal prep strategies for college students using basic kitchen supplies and mini-fridges.">
+  <style>
+    :root {
+      --primary: #2563eb;
+      --bg: #0f172a;
+      --bg-card: rgba(255, 255, 255, 0.04);
+      --border: rgba(255, 255, 255, 0.1);
+      --border-accent: rgba(56, 189, 248, 0.3);
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #38bdf8;
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 22px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text-main);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .edu-disclaimer {
+      background: #1e293b;
+      border-bottom: 1px solid rgba(251, 191, 36, 0.3);
+      color: #fbbf24;
+      font-size: 0.8rem;
+      text-align: center;
+      padding: 10px 16px;
+      font-weight: 500;
+    }
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(15, 23, 42, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .brand-logo { text-decoration: none; color: #ffffff; font-weight: 800; font-size: 1.25rem; }
+    .nav-links { display: flex; gap: 8px; flex-wrap: wrap; }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      padding: 8px 14px;
+      border-radius: var(--radius-sm);
+    }
+    .nav-links a:hover { color: #ffffff; background: rgba(255, 255, 255, 0.06); }
+    .nav-links a.active {
+      color: #ffffff;
+      background: rgba(37, 99, 235, 0.25);
+      border: 1px solid rgba(37, 99, 235, 0.5);
+    }
+    .content-wrap { max-width: 900px; margin: 40px auto; padding: 0 24px; }
+    .page-header { margin-bottom: 36px; }
+    .page-pill {
+      display: inline-block;
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid var(--border-accent);
+      color: var(--accent);
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .page-header h1 {
+      font-size: clamp(2rem, 4vw, 2.8rem);
+      font-weight: 800;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
+    }
+    .page-header p { font-size: 1.1rem; color: var(--text-muted); }
+    .recipe-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 36px; }
+    .recipe-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .recipe-price {
+      display: inline-block;
+      background: rgba(34, 197, 94, 0.15);
+      color: #4ade80;
+      font-weight: 700;
+      font-size: 0.8rem;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 12px;
+    }
+    .recipe-card h3 { font-size: 1.15rem; margin-bottom: 10px; color: var(--text-main); }
+    .recipe-card p { font-size: 0.88rem; color: var(--text-muted); margin-bottom: 14px; }
+    .recipe-card ul { padding-left: 18px; font-size: 0.85rem; color: var(--text-muted); }
+    .recipe-card ul li { margin-bottom: 6px; }
+    .nav-box {
+      background: rgba(37, 99, 235, 0.08);
+      border: 1px solid var(--border-accent);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      margin-top: 36px;
+      text-align: center;
+    }
+    .nav-box a { color: var(--accent); font-weight: 600; text-decoration: none; margin: 0 10px; }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      background: #090d16;
+      margin-top: 60px;
+    }
+    footer .disclaimer { color: #eab308; font-size: 0.82rem; font-weight: 500; }
+  </style>
+</head>
+<body>
+
+<aside class="edu-disclaimer">
+  This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.
+</aside>
+
+<header class="navbar">
+  <div class="nav-container">
+    <a href="index.html" class="brand-logo">CampusFit<span style="color:var(--accent);">AI</span></a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="dorm-workout.html">Dorm Workouts</a>
+      <a href="campus-gym.html">Campus Gym Plan</a>
+      <a href="budget-meals.html" class="active">Budget Meals</a>
+    </nav>
+  </div>
+</header>
+
+<main class="content-wrap">
+  <div class="page-header">
+    <div class="page-pill">Low-Cost Student Nutrition</div>
+    <h1>Healthy Meals for College Students on a Budget</h1>
+    <p>Nutritious eating on campus doesn't require expensive organic grocery hauls or complex culinary equipment. These frameworks prioritize high protein, minimal prep time, and microwave or mini-fridge compatibility.</p>
+  </div>
+
+  <div class="recipe-grid">
+    <div class="recipe-card">
+      <div>
+        <span class="recipe-price">~$1.75 / Serving</span>
+        <h3>High-Protein Scramble Bowl</h3>
+        <p>Simple microwave or hotplate breakfast ready in under 5 minutes.</p>
+        <ul>
+          <li>3 large eggs or liquid egg whites</li>
+          <li>1/2 can black beans (rinsed)</li>
+          <li>2 tbsp salsa & handful of spinach</li>
+          <li>Serve with toasted corn tortilla</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <div>
+        <span class="recipe-price">~$1.20 / Serving</span>
+        <h3>Overnight Dorm Oats</h3>
+        <p>Zero cooking required; prep in a mason jar or mug before bed.</p>
+        <ul>
+          <li>1/2 cup rolled oats</li>
+          <li>1/2 cup Greek yogurt (plain)</li>
+          <li>1/2 cup milk or oat milk</li>
+          <li>Topped with frozen berries</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="recipe-card">
+      <div>
+        <span class="recipe-price">~$2.40 / Serving</span>
+        <h3>Rotisserie Chicken & Rice</h3>
+        <p>The ultimate low-effort, macro-balanced dinner option.</p>
+        <ul>
+          <li>1 cup instant microwave brown rice</li>
+          <li>4–5 oz shredded rotisserie chicken</li>
+          <li>Steamed frozen broccoli florets</li>
+          <li>Drizzle of sriracha or low-sodium soy sauce</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="nav-box">
+    <p>Pair your meal strategy with an active routine:</p>
+    <a href="dorm-workout.html">&rarr; Dorm Room Workout Plan</a>
+    <a href="campus-gym.html">&rarr; Beginner Campus Gym Plan</a>
+  </div>
+</main>
+
+<footer>
+  <p class="disclaimer">This is a fictional website created for educational purposes as part of MKTG:4400 at the University of Iowa. It is not a real business.</p>
+</footer>
+
+</body>
+</html>
